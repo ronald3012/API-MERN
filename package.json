@@ -9,6 +9,7 @@
   "author": "Ronald De Leon",
   "license": "MIT",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "dotenv": "^9.0.2",
     "express": "^4.17.1",
     "express-validator": "^6.11.1",

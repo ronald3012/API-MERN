@@ -1,4 +1,5 @@
 const {response} = require('express');
+const bcrypt = require('bcryptjs');
 const UserModel = require('../models/UserModel');
 
 const login = (req, res) =>{
@@ -13,11 +14,15 @@ const login = (req, res) =>{
 const register = async (req, res = response ) =>{
 
     try {
-        const user = new UserModel( req.body );
+        let user = new UserModel( req.body );
+
+        const salt =  bcrypt.genSaltSync();
+
+        user.password = bcrypt.hashSync( req.body.password, salt );
 
         await user.save();
 
-        res.status(201).json({
+        res.status( 201 ).json({
             ok:true,
             uid:user.id,
             name:user.name
