@@ -1,0 +1,4 @@
+PORT=4001
+DB_CNN=Your_connection_string_of_mondoDb
+
+SECRET_JWT_SEED=Your_secret_key
