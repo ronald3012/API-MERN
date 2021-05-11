@@ -1,6 +1,10 @@
-
+const {response} = require('express');
+const {validationResult} =  require('express-validator');
 
 const login = (req, res) =>{
+
+    validate(req, res);
+
     res.json({
         ok:true,
         msg:'Login'
@@ -9,10 +13,14 @@ const login = (req, res) =>{
 }
 
 
-const register = (req, res) =>{
-    res.json({
+const register = (req, res = response ) =>{
+
+    validate(req, res);
+
+    res.status(201).json({
         ok:true,
-        msg:'Register'
+        msg:'Register',
+        user:req.body
     })
 }
 
@@ -23,6 +31,20 @@ const renew = (req, res) =>{
         msg:'Renew'
 
     })
+}
+
+const validate = (req, res)=>{
+    
+    const errors = validationResult(req);
+
+    if ( !errors.isEmpty() ) {
+        return res.status(400).json(
+            {
+                ok:false,
+                errors: errors.mapped()
+            }
+        )
+    }
 }
 
 module.exports = {
