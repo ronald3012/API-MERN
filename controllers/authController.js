@@ -1,4 +1,5 @@
 const {response} = require('express');
+const UserModel = require('../models/UserModel');
 
 const login = (req, res) =>{
 
@@ -9,13 +10,27 @@ const login = (req, res) =>{
     })
 }
 
-const register = (req, res = response ) =>{
+const register = async (req, res = response ) =>{
 
-    res.status(201).json({
-        ok:true,
-        msg:'Register',
-        user:req.body
-    })
+    try {
+        const user = new UserModel( req.body );
+
+        await user.save();
+
+        res.status(201).json({
+            ok:true,
+            msg:'Register',
+        });
+
+    } catch (error) {
+
+        console.log(error);
+        
+        res.status(500).json({
+            ok:false,
+            msg: 'please talk to the administrator'
+        })
+    }
 }
 
 const renew = (req, res) =>{
