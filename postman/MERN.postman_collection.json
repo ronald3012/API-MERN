@@ -72,7 +72,7 @@
 				"header": [
 					{
 						"key": "x-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MDlhYjM1ZDc5NThmNDYzMGIwZjZmYzUiLCJuYW1lIjoiUm9uYWxkIERlIExlb24iLCJpYXQiOjE2MjA3NTg5MjUsImV4cCI6MTYyMDc2NjEyNX0.G0r33ymzrEDkFg3MLS8IS9zibK78eLE0dtCqQ33WVzI",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MDlhZGM5ZDJmYWEwMjgyZWEyMDkzOWIiLCJuYW1lIjoiUm9uYWxkIERlIExlb24iLCJpYXQiOjE2MjA5MzA5NDMsImV4cCI6MTYyMDkzODE0M30.2OzPsAGHXYwh8nCpd2RYwAcXiTjAZzxmQpM7Whr7hUY",
 						"type": "text"
 					}
 				],
@@ -87,6 +87,130 @@
 						"api",
 						"auth",
 						"renew"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Task - add task",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MDlhZGM5ZDJmYWEwMjgyZWEyMDkzOWIiLCJuYW1lIjoiUm9uYWxkIERlIExlb24iLCJpYXQiOjE2MjA5Mzg1NDMsImV4cCI6MTYyMDk0NTc0M30.93IcBvxT9fvuJAtgA0n86CrD56q5pMXVsH7N2v94Kz8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\":\"Task 1\",\n    \"description\":\"Description 1\",\n    \"color\":\"#22b0b0\",\n    \"etiquetas\":\"https://pwa-rdl.surge.sh/assets/img/clock.png\",\n    \"date\":\"2021-05-20\",\n    \"time\":\"13:06\",\n    \"completed\":1,\n    \"user\": \"609adc9d2faa0282ea20939b\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4001/api/task",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"api",
+						"task"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Task - update task",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MDlhZGM5ZDJmYWEwMjgyZWEyMDkzOWIiLCJuYW1lIjoiUm9uYWxkIERlIExlb24iLCJpYXQiOjE2MjA5Mzg1NDMsImV4cCI6MTYyMDk0NTc0M30.93IcBvxT9fvuJAtgA0n86CrD56q5pMXVsH7N2v94Kz8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"color\":\"#22b0b0\",\"etiquetas\":\"https://pwa-rdl.surge.sh/assets/img/clock.png\",\n    \"title\":\"Test task\",\n    \"date\":\"2021-05-20\",\n    \"time\":\"13:06\",\n    \"description\":\"Prueba final\",\n    \"completed\":1,\n    \"user\": \"609adc9d2faa0282ea20939b\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4001/api/task/609d98b624458fb3f7411ce4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"api",
+						"task",
+						"609d98b624458fb3f7411ce4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Task - delete task",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MDlhZGM5ZDJmYWEwMjgyZWEyMDkzOWIiLCJuYW1lIjoiUm9uYWxkIERlIExlb24iLCJpYXQiOjE2MjA5Mzg1NDMsImV4cCI6MTYyMDk0NTc0M30.93IcBvxT9fvuJAtgA0n86CrD56q5pMXVsH7N2v94Kz8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:4001/api/task/609d98b624458fb3f7411ce4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"api",
+						"task",
+						"609d98b624458fb3f7411ce4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "task - Tasks list",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MDlhZGM5ZDJmYWEwMjgyZWEyMDkzOWIiLCJuYW1lIjoiUm9uYWxkIERlIExlb24iLCJpYXQiOjE2MjA5Mzg1NDMsImV4cCI6MTYyMDk0NTc0M30.93IcBvxT9fvuJAtgA0n86CrD56q5pMXVsH7N2v94Kz8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:4001/api/task",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"api",
+						"task"
 					]
 				}
 			},
