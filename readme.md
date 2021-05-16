@@ -1,4 +1,4 @@
-# API REST
+# API MERN
 
 This is an app created with mongodb, express, react and node.
 
