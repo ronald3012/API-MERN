@@ -7,23 +7,26 @@ const login = async (req, res) =>{
 
     try {
 
-        const {id, name, password} = await UserModel.findOne({email:req.body.email});
-        const validPasword = await bcrypt.compareSync(req.body.password, password);
+        const user = await UserModel.findOne({email:req.body.email});
+
+        let validPasword; 
+
+        user? validPasword = await bcrypt.compareSync(req.body.password, user.password):'';
         
-        if (!id || !validPasword) {
+        if (!user || !validPasword) {
             return res.status(401).json({
                 ok:false,
                 msg:'Email or password is not correct'
             })
         }
 
-        const token = await generateJWT( id,name );
+        const token = await generateJWT( user.id, user.name );
 
 
         res.json({
             ok:true,
-            uid:id,
-            name,
+            uid:user.id,
+            name:user.name,
             token
         });
 

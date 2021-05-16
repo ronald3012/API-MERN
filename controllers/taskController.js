@@ -5,7 +5,7 @@ const tasksList = async (req, res) =>{
 
     try {
 
-        const tasksList = await TaskModel.find();
+        const tasksList = await TaskModel.find({user:req.uid})
 
         res.json({
             ok:true,

@@ -20,7 +20,7 @@ app.use('/api/auth',
         require('./routes/authRoute') 
 );
 
-app.use('/api/task', 
+app.use('/api/tasks', 
         validateJWT,
         require('./routes/taskRoute') 
 );
